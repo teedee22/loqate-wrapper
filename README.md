@@ -3,13 +3,11 @@
 ## Summary
 Rest endpoint wrapping Loqate's geolocation service
 
-![Interaction Diagram](./docs/interaction-diagram.png)
-
 ## Endpoints
 | Endpoint | REST | Description |
 |---|---|---|
 |/ | GET | *returns a healthcheck message* |
-| /loqate | POST | *returns * |
+| /loqate | POST | *returns geolocation data, querying https://api.addressy.com/Geocoding/International/Geocode/v1.10/xmla.ws?* |
 
 ## Payload
 POST /loqate (json)
@@ -31,3 +29,8 @@ Expected return:
     }
 ]
 ```
+
+## CICD
+
+.gitlab-ci will build docker image when a git tag is pushed
+registry images can be seen here: https://gitlab.com/teedee22/loqate/container_registry
