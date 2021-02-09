@@ -1,7 +1,7 @@
-# Loqate wrapper
+# Loqate geocode wrapper
 
 ## Summary
-Rest endpoint wrapping Loqate's geolocation service
+Rest endpoint wrapping Loqate's geocode service
 
 ## Endpoints
 | Endpoint | REST | Description |
