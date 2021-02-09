@@ -1,4 +1,4 @@
-import urllib, xml.dom.minidom
+import urllib.request, urllib.parse, urllib.error, xml.dom.minidom
 
 import json
 
@@ -10,17 +10,17 @@ def Geocoding_International_Geocode_v1_10(Key, Country, Location):
 
     requestUrl = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/xmla.ws?"
 
-    requestUrl += "&" +  urllib.urlencode({"Key":Key})
+    requestUrl += "&" +  urllib.parse.urlencode({"Key":Key})
 
-    requestUrl += "&" +  urllib.urlencode({"Country":Country})
+    requestUrl += "&" +  urllib.parse.urlencode({"Country":Country})
 
-    requestUrl += "&" +  urllib.urlencode({"Location":Location})
+    requestUrl += "&" +  urllib.parse.urlencode({"Location":Location})
 
 
 
     #Get the data
 
-    dataDoc = xml.dom.minidom.parseString(urllib.urlopen(requestUrl).read())
+    dataDoc = xml.dom.minidom.parseString(urllib.request.urlopen(requestUrl).read())
 
 
 
@@ -36,7 +36,7 @@ def Geocoding_International_Geocode_v1_10(Key, Country, Location):
 
     if len(schemaNodes) == 4 and schemaNodes[0].attributes["Name"].value == "Error":
 
-        raise Exception, dataNotes[0].attributes["Description"].value
+        raise Exception(dataNotes[0].attributes["Description"].value)
 
 
 
