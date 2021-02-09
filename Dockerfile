@@ -1,9 +1,10 @@
 FROM python:3.8-alpine
 
-COPY ./src/loqate.py /app/app.py
+COPY ./src/ /app/
 COPY ./requirements.txt /app/requirements.txt
 
 WORKDIR /app
+
 RUN pip install -r requirements.txt
 
 CMD gunicorn \
